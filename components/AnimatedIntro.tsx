@@ -8,10 +8,9 @@ export default function AnimatedIntro() {
       <TypeAnimation
         sequence={[
           'Hello I\'m\n\nRiantsoa Chérica', // Affiche le texte
-          2000, // Garde le texte affiché pendant 2 secondes
-          () => {}, // Pause intermédiaire sans animation
+          4000, // Garde le texte affiché pendant 2 secondes
           '', // Efface le texte immédiatement
-          500, // Pause avant de redémarrer
+          500, // Pause avant de redémarrer (tu peux enlever cela si tu veux que l'animation recommence immédiatement)
         ]}
         wrapper="div"
         speed={50} // Vitesse pour afficher les caractères

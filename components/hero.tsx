@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Youtube, Twitter, Facebook, Mail } from 'lucide-react'
 import BinaryBackground from "@/components/BinaryBackground"
 import AnimatedIntro from '@/components/AnimatedIntro';
+import AnimatedProfileImage from '@/components/AnimatedProfile'
 export function Hero() {
   return (
     <section className="min-h-screen flex items-center pt-20 relative overflow-hidden">
@@ -52,14 +53,12 @@ export function Hero() {
           <div className="relative">
             <div className="relative w-[300px] h-[300px] mx-auto">
               <div className="absolute inset-0 rounded-full border-2 border-[#00FF94] animate-spin-slow" />
-              <Image
-                src="/images/Screenshot_20241207-213145~2.png"
-                alt="Profile"
-                width={300}
-                height={300}
-                className="rounded-full object-cover"
-                priority
-              />
+              <AnimatedProfileImage
+        src="/images/Screenshot_20241207-213145~2.png"
+        alt="Profile"
+        width={300}
+        height={300}
+      />
             </div>
           </div>
         </div>
