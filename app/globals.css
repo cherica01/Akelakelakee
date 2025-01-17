@@ -3,6 +3,26 @@
 @tailwind utilities;
 
 @layer utilities {
+  /* Définir des classes personnalisées utilisant les variables CSS */
+  .bg-background {
+    background-color: hsl(var(--background));
+  }
+  .text-foreground {
+    color: hsl(var(--foreground));
+  }
+  .border-border {
+    border-color: hsl(var(--border));
+  }
+  .bg-card {
+    background-color: hsl(var(--card));
+  }
+  .text-card-foreground {
+    color: hsl(var(--card-foreground));
+  }
+  /* Vous pouvez ajouter d'autres classes si nécessaire */
+}
+
+@layer utilities {
   .animate-spin-slow {
     animation: spin 8s linear infinite;
   }
@@ -74,11 +94,15 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
+  .bordered {
+    @apply border border-gray-200;
   }
   body {
     @apply bg-background text-foreground;
   }
 }
 
+/* Classe personnalisée */
+.my-custom-class {
+  @apply border border-gray-500;
+}

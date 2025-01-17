@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const jetBrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" })
 
 export const metadata: Metadata = {
-  title: "Modern Portfolio",
+  title: "Portfolio Cherica",
   description: "A modern portfolio website built with Next.js",
 }
 

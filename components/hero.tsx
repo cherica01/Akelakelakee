@@ -1,57 +1,52 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Youtube, Twitter, Facebook, Mail } from 'lucide-react'
-
+import BinaryBackground from "@/components/BinaryBackground"
+import AnimatedIntro from '@/components/AnimatedIntro';
 export function Hero() {
   return (
-    <section className="min-h-screen flex items-center pt-20">
-      <div className="container mx-auto px-4">
+    <section className="min-h-screen flex items-center pt-20 relative overflow-hidden">
+      <BinaryBackground />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <h2 className="text-gray-400 text-xl">Back-end developer, Integrator</h2>
-            <div className="space-y-2">
-              <p className="text-4xl text-white">Hello I'm</p>
-              <h1 className="text-6xl font-mono text-[#00FF94]">Riantsoa Chérica</h1>
-            </div>
+            <AnimatedIntro />
+             
             <p className="text-gray-400 max-w-lg">
               I excel at crafting elegant digital experiences, and I am proficient in various programming languages and
               technologies.
             </p>
             <div className="flex flex-wrap gap-4">
-                <a
-                    href="/cv.pdf"
-                    download="MonCV.pdf"
-                    className="bg-[#00FF94] text-black hover:bg-[#00FF94]/90 px-4 py-2 rounded"
-                    >
-                    DOWNLOAD CV
+              <a
+                href="/cv.pdf"
+                download="MonCV.pdf"
+                className="bg-[#00FF94] text-black hover:bg-[#00FF94]/90 px-4 py-2 rounded"
+              >
+                DOWNLOAD CV
+              </a>
+              <div className="flex gap-4">
+                <a href="https://github.com/cherica01" target="_blank" rel="noopener noreferrer">
+                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+                    <Github className="h-5 w-5" />
+                  </Button>
                 </a>
-
-
-                <div className="flex gap-4">
-                        <a href="https://github.com/cherica01" target="_blank" rel="noopener noreferrer">
-                            <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
-                            <Github className="h-5 w-5" />
-                            </Button>
-                        </a>
-                        <a href="https://www.linkedin.com/in/riantsoa-cherica-88740a303" target="_blank" rel="noopener noreferrer">
-                            <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
-                            <Linkedin className="h-5 w-5" />
-                            </Button>
-                        </a>
-                    
-                            <a href="https://web.facebook.com/riantsoa.cherica.7/" target="_blank" rel="noopener noreferrer">
-                                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
-                                <Facebook className="h-5 w-5" />
-                                </Button>
-                            </a>
-
-                            <a href="mailto:riantsoacherica01@gmail.com">
-                                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
-                                <Mail className="h-5 w-5" />
-                                </Button>
-                            </a>
-                </div>
-
+                <a href="https://www.linkedin.com/in/riantsoa-cherica-88740a303" target="_blank" rel="noopener noreferrer">
+                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+                    <Linkedin className="h-5 w-5" />
+                  </Button>
+                </a>
+                <a href="https://web.facebook.com/riantsoa.cherica.7/" target="_blank" rel="noopener noreferrer">
+                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+                    <Facebook className="h-5 w-5" />
+                  </Button>
+                </a>
+                <a href="mailto:riantsoacherica01@gmail.com">
+                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+                    <Mail className="h-5 w-5" />
+                  </Button>
+                </a>
+              </div>
             </div>
           </div>
           <div className="relative">
