@@ -70,19 +70,19 @@ export function Hero() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20">
           <div className="text-center">
-            <h3 className="text-4xl font-bold text-white">12</h3>
+            <h3 className="text-6xl font-bold text-white">3</h3>
             <p className="text-gray-400 text-sm">Years of experience</p>
           </div>
           <div className="text-center">
-            <h3 className="text-4xl font-bold text-white">26</h3>
+            <h3 className="text-6xl font-bold text-white">16</h3>
             <p className="text-gray-400 text-sm">Projects completed</p>
           </div>
           <div className="text-center">
-            <h3 className="text-4xl font-bold text-white">8</h3>
+            <h3 className="text-6xl font-bold text-white">8</h3>
             <p className="text-gray-400 text-sm">Technologies mastered</p>
           </div>
           <div className="text-center">
-            <h3 className="text-4xl font-bold text-white">500</h3>
+            <h3 className="text-6xl font-bold text-white">500</h3>
             <p className="text-gray-400 text-sm">Code commits</p>
           </div>
         </div>
