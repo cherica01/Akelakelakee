@@ -1,6 +1,6 @@
-import Image from "next/image"
+
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Youtube, Twitter, Facebook, Mail } from 'lucide-react'
+import { Github, Linkedin, Facebook, Mail } from 'lucide-react'
 import BinaryBackground from "@/components/BinaryBackground"
 import AnimatedIntro from '@/components/AnimatedIntro';
 import AnimatedProfileImage from '@/components/AnimatedProfile'

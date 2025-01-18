@@ -76,7 +76,7 @@ export function Header() {
               className="border-[#00FF94] text-[#00FF94] hover:bg-[#00FF94] hover:text-black"
               onClick={handleWhatsAppClick}
             >
-              Let's Talk
+              Let&apos;s Talk
             </Button>
       </nav>
 
@@ -166,7 +166,7 @@ export function Header() {
               className="border-[#00FF94] text-[#00FF94] hover:bg-[#00FF94] hover:text-black"
               onClick={handleWhatsAppClick}
             >
-              Let's Talk
+              Let&apos;s Talk
             </Button>
       </nav>
     </div>

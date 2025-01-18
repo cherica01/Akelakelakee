@@ -28,7 +28,7 @@ export function Resume() {
               </Card>
               <Card className="bg-zinc-900 border-zinc-800 h-full hover:border-[#00FF94] transition-all duration-300">
                 <CardHeader>
-                  <CardTitle className="text-white">Bachelor's degree (Bac+3) in Computer Science, Risk, and Decision </CardTitle>
+                  <CardTitle className="text-white">Bachelor&apos;s degree (Bac+3) in Computer Science, Risk, and Decision </CardTitle>
                   <p className="text-[#00FF94]">2024 - 2025</p>
                 </CardHeader>
                 <CardContent className="text-gray-400">

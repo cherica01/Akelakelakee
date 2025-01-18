@@ -100,7 +100,7 @@ export function Contact() {
           <CardHeader>
             <CardTitle className="text-white">Send Message</CardTitle>
             <CardDescription className="text-gray-400">
-              Fill out the form below and I'll get back to you as soon as
+              Fill out the form below and I&apos;ll get back to you as soon as
               possible
             </CardDescription>
           </CardHeader>
