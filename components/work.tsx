@@ -78,17 +78,17 @@ export function Work() {
            style={{ marginBottom: "1.5rem" }} // Ajout d'espacement entre les cartes
          >
               <CardContent className="p-0 relative h-[300px] overflow-hidden group">
-                <Image
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  layout="responsive"
-                  width={600}
-                  height={400}
-                  objectFit="cover"
-                  className={`transition-all duration-300 ${
-                    expandedCard === project.id ? 'opacity-20 blur-md' : 'opacity-100'
-                  }`}
-                />
+              <Image
+                        src={project.image || "/placeholder.svg"}
+                        alt={project.title}
+                        width={600}   // Remplace `layout="responsive"` par une largeur spécifique
+                        height={400}  // Remplace `layout="responsive"` par une hauteur spécifique
+                        style={{ objectFit: 'cover' }}  // Applique l'effet `objectFit` via `style`
+                        className={`transition-all duration-300 ${
+                          expandedCard === project.id ? 'opacity-20 blur-md' : 'opacity-100'
+                        }`}
+                      />
+
                 <div
                   className={`absolute bottom-0 left-0 w-full bg-black/30 px-4 py-3 transition-opacity duration-300 ${
                     expandedCard === project.id ? 'opacity-40' : 'opacity-80'

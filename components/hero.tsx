@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Facebook, Mail } from 'lucide-react'
+import { Github, Linkedin, Youtube, Twitter, Facebook, Mail } from 'lucide-react'
 import BinaryBackground from "@/components/BinaryBackground"
 import AnimatedIntro from '@/components/AnimatedIntro';
 import AnimatedProfileImage from '@/components/AnimatedProfile'
@@ -12,14 +12,17 @@ export function Hero() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
           <h2
-  className="text-blue-800 text-3xl font-mono mt-4"
-  style={{
-    textShadow: '0 0 15px #00f7ff, 0 0 25px #00f7ff, 0 0 35px #00f7ff', // Ombre lumineuse avec un bleu clair
-    color: '#00f7ff', // Bleu lumineux
-  }}
->
-  Back-end developer, Integrator
-</h2>
+            className="text-blue-800 text-3xl font-mono"
+            style={{
+              position: 'relative', // Permet de déplacer par rapport à sa position d'origine
+              top: '60px', // Décale le titre vers le bas
+              textShadow: '0 0 15px #00f7ff, 0 0 25px #00f7ff, 0 0 35px #00f7ff',
+              color: '#00f7ff',
+            }}
+          >
+            Back-end developer, Integrator
+          </h2>
+
 
             <AnimatedIntro />
              
