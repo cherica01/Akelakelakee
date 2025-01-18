@@ -1,5 +1,5 @@
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export function Resume() {
   return (
@@ -12,59 +12,62 @@ export function Resume() {
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-8">
+          {/* Education Section */}
           <div>
-            <h3 className="text-2xl font-bold text-white mb-6">Education</h3>
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">Education</h3>
             <div className="space-y-4">
-              <Card className="bg-zinc-900 border-zinc-800">
+              <Card className="bg-zinc-900 border-zinc-800 h-full">
                 <CardHeader>
-                  <CardTitle className="text-white">Master in Computer Science</CardTitle>
-                  <p className="text-[#00FF94]">2018 - 2020</p>
+                  <CardTitle className="text-white">Obtaining a certification in Responsive Web Design.</CardTitle>
+                  <p className="text-[#00FF94]">2024 - 2025</p>
                 </CardHeader>
                 <CardContent className="text-gray-400">
-                  <p>Stanford University</p>
-                  <p className="mt-2">Specialized in Artificial Intelligence and Web Technologies</p>
+                  <p>Freecodecamp</p>
+                  <p className="mt-2">Responsive Web Design Certification, showcasing expertise in creating adaptable and user-friendly web interfaces.</p>
                 </CardContent>
               </Card>
-              <Card className="bg-zinc-900 border-zinc-800">
+              <Card className="bg-zinc-900 border-zinc-800 h-full">
                 <CardHeader>
-                  <CardTitle className="text-white">Bachelor in Software Engineering</CardTitle>
-                  <p className="text-[#00FF94]">2014 - 2018</p>
+                  <CardTitle className="text-white">Bachelor's degree (Bac+3) in Computer Science, Risk, and Decision </CardTitle>
+                  <p className="text-[#00FF94]">2024 - 2025</p>
                 </CardHeader>
                 <CardContent className="text-gray-400">
-                  <p>MIT</p>
-                  <p className="mt-2">Focus on Software Development and System Design</p>
+                  <p>E.S.M.I.A</p>
+                  <p className="mt-2">Focuses on web development using agile methods</p>
                 </CardContent>
               </Card>
             </div>
           </div>
+
+          {/* Experience Section */}
           <div>
-            <h3 className="text-2xl font-bold text-white mb-6">Experience</h3>
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">Experience</h3>
             <div className="space-y-4">
-              <Card className="bg-zinc-900 border-zinc-800">
+              <Card className="bg-zinc-900 border-zinc-800 h-full">
                 <CardHeader>
-                  <CardTitle className="text-white">Senior Software Engineer</CardTitle>
-                  <p className="text-[#00FF94]">2020 - Present</p>
+                  <CardTitle className="text-white">Back-end developer, Integrator</CardTitle>
+                  <p className="text-[#00FF94]">2024 - Present</p>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-400 mb-4">Google</p>
+                  <p className="text-gray-400 mb-4">NexusCraft</p>
                   <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="border-[#00FF94] text-[#00FF94]">React</Badge>
+                    <Badge variant="outline" className="border-[#00FF94] text-[#00FF94]">Django</Badge>
                     <Badge variant="outline" className="border-[#00FF94] text-[#00FF94]">Next.js</Badge>
                     <Badge variant="outline" className="border-[#00FF94] text-[#00FF94]">TypeScript</Badge>
                   </div>
                 </CardContent>
               </Card>
-              <Card className="bg-zinc-900 border-zinc-800">
+              <Card className="bg-zinc-900 border-zinc-800 h-full">
                 <CardHeader>
-                  <CardTitle className="text-white">Software Developer</CardTitle>
-                  <p className="text-[#00FF94]">2018 - 2020</p>
+                  <CardTitle className="text-white">4-month internship as a back-end and full-stack developer</CardTitle>
+                  <p className="text-[#00FF94]">2023, 2024</p>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-400 mb-4">Microsoft</p>
+                  <p className="text-gray-400 mb-4">M.E.N (Ministry of National Education)</p>
                   <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="border-[#00FF94] text-[#00FF94]">JavaScript</Badge>
-                    <Badge variant="outline" className="border-[#00FF94] text-[#00FF94]">Node.js</Badge>
-                    <Badge variant="outline" className="border-[#00FF94] text-[#00FF94]">Azure</Badge>
+                    <Badge variant="outline" className="border-[#00FF94] text-[#00FF94]">Php</Badge>
+                    <Badge variant="outline" className="border-[#00FF94] text-[#00FF94]">Mysql</Badge>
+                    <Badge variant="outline" className="border-[#00FF94] text-[#00FF94]">Cordova</Badge>
                   </div>
                 </CardContent>
               </Card>
@@ -73,6 +76,5 @@ export function Resume() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

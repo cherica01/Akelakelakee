@@ -1,5 +1,5 @@
-import { Code, Palette, Globe, Smartphone } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Code, Globe, Smartphone } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export function Services() {
   return (
@@ -11,8 +11,8 @@ export function Services() {
             I offer a wide range of development services to help bring your digital ideas to life
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card className="bg-zinc-900 border-zinc-800 hover:border-[#00FF94] transition-colors">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
+          <Card className="bg-zinc-900 border-zinc-800 hover:border-[#00FF94] transition-colors mx-auto">
             <CardHeader>
               <Code className="h-12 w-12 text-[#00FF94] mb-4" />
               <CardTitle className="text-white">Web Development</CardTitle>
@@ -23,18 +23,8 @@ export function Services() {
               </CardDescription>
             </CardContent>
           </Card>
-          <Card className="bg-zinc-900 border-zinc-800 hover:border-[#00FF94] transition-colors">
-            <CardHeader>
-              <Palette className="h-12 w-12 text-[#00FF94] mb-4" />
-              <CardTitle className="text-white">UI/UX Design</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="text-gray-400">
-                Designing intuitive and beautiful user interfaces with a focus on user experience
-              </CardDescription>
-            </CardContent>
-          </Card>
-          <Card className="bg-zinc-900 border-zinc-800 hover:border-[#00FF94] transition-colors">
+
+          <Card className="bg-zinc-900 border-zinc-800 hover:border-[#00FF94] transition-colors mx-auto">
             <CardHeader>
               <Globe className="h-12 w-12 text-[#00FF94] mb-4" />
               <CardTitle className="text-white">SEO Optimization</CardTitle>
@@ -45,7 +35,8 @@ export function Services() {
               </CardDescription>
             </CardContent>
           </Card>
-          <Card className="bg-zinc-900 border-zinc-800 hover:border-[#00FF94] transition-colors">
+
+          <Card className="bg-zinc-900 border-zinc-800 hover:border-[#00FF94] transition-colors mx-auto">
             <CardHeader>
               <Smartphone className="h-12 w-12 text-[#00FF94] mb-4" />
               <CardTitle className="text-white">Mobile Development</CardTitle>
@@ -59,6 +50,5 @@ export function Services() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
