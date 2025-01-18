@@ -1,12 +1,63 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin } from 'lucide-react'
+import React, { useState } from "react";
+import emailjs from "emailjs-com";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, Phone, MapPin } from "lucide-react";
+
 
 export function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await emailjs.send(
+        "service_jgl94xa", // Remplacez par votre Service ID
+        "template_jht10r6", // Remplacez par votre Template ID
+        {
+          from_name: formData.name, // Correspond à {{from_name}}
+          reply_to: formData.email, // Correspond à {{reply_to}}
+          subject: formData.subject, // Correspond à {{subject}}
+          message: formData.message, // Correspond à {{message}}
+        },
+        "wP8r530yYXrJws0Mm" // Remplacez par votre clé publique
+      );
+      console.log("Email envoyé avec succès :", response);
+      setSuccessMessage("Your message has been sent successfully!");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("Erreur lors de l'envoi de l'email :", error);
+      alert("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-zinc-900/50">
       <div className="container mx-auto px-4">
@@ -49,46 +100,69 @@ export function Contact() {
           <CardHeader>
             <CardTitle className="text-white">Send Message</CardTitle>
             <CardDescription className="text-gray-400">
-              Fill out the form below and I'll get back to you as soon as possible
+              Fill out the form below and I'll get back to you as soon as
+              possible
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Input
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     placeholder="Your Name"
+                    required
                     className="bg-zinc-800 border-zinc-700 text-white placeholder:text-gray-400"
                   />
                 </div>
                 <div className="space-y-2">
                   <Input
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder="Your Email"
                     type="email"
+                    required
                     className="bg-zinc-800 border-zinc-700 text-white placeholder:text-gray-400"
                   />
                 </div>
               </div>
               <div className="space-y-2">
                 <Input
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
                   placeholder="Subject"
+                  required
                   className="bg-zinc-800 border-zinc-700 text-white placeholder:text-gray-400"
                 />
               </div>
               <div className="space-y-2">
                 <Textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Your Message"
+                  required
                   className="min-h-[150px] bg-zinc-800 border-zinc-700 text-white placeholder:text-gray-400"
                 />
               </div>
-              <Button className="w-full bg-[#00FF94] text-black hover:bg-[#00FF94]/90">
-                Send Message
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-[#00FF94] text-black hover:bg-[#00FF94]/90"
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </form>
+            {successMessage && (
+              <p className="text-center mt-4 text-white">{successMessage}</p>
+            )}
           </CardContent>
         </Card>
       </div>
     </section>
-  )
+  );
 }
-

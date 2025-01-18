@@ -63,22 +63,19 @@ export function Work() {
   return (
     <section id="work" className="py-20">
       <div className="container mx-auto px-4">
-        {/* Ajout du titre lumineux */}
-        <div className="text-center mb-12">
-        
-        </div>
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-white mb-4">Recent Work</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
             A selection of my recent projects and collaborations
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
             <Card 
               key={project.id} 
               className="bg-zinc-900 border-zinc-800 overflow-hidden group cursor-pointer"
               onClick={() => setExpandedCard(expandedCard === project.id ? null : project.id)}
+              style={{ marginBottom: "1.5rem" }} // Ajout d'espacement entre les cartes
             >
               <CardContent className="p-0 relative h-[300px] overflow-hidden group">
                 <Image
@@ -92,17 +89,20 @@ export function Work() {
                     expandedCard === project.id ? 'opacity-20 blur-md' : 'opacity-100'
                   }`}
                 />
-               <div
-  className={`absolute bottom-0 left-0 w-full bg-black/80 px-4 py-3 transition-opacity duration-300 ${
-    expandedCard === project.id ? 'opacity-50' : 'opacity-100'
-  }`}
-  style={{ zIndex: 10 }}
->
-  <h3 className="text-2xl font-extrabold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.9)] z-20">
-    {project.title}
-  </h3>
-</div>
-
+                <div
+                  className={`absolute bottom-0 left-0 w-full bg-black/30 px-4 py-3 transition-opacity duration-300 ${
+                    expandedCard === project.id ? 'opacity-40' : 'opacity-80'
+                  }`}
+                  style={{ zIndex: 10 }}
+                >
+                  <h3
+                    className={`text-2xl font-extrabold transition-colors duration-300 ${
+                      expandedCard === project.id ? 'text-black' : 'text-white'
+                    } drop-shadow-[0_0_10px_rgba(255,255,255,0.9)] z-20`}
+                  >
+                    {project.title}
+                  </h3>
+                </div>
                 <div 
                   className={`absolute inset-0 bg-black/90 flex flex-col justify-end p-6 transition-transform duration-300 ${
                     expandedCard === project.id ? 'translate-y-0' : 'translate-y-[calc(100%-4rem)]'
@@ -116,7 +116,11 @@ export function Work() {
                     <p className="text-lg text-[#E6E6E6] mb-4">{project.description}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.badges.map((badge, index) => (
-                        <Badge key={index} variant="outline" className="border-[#00FF94] text-[#00FF94]">
+                        <Badge
+                          key={index}
+                          variant="outline"
+                          className="border-[#00FF94] text-[#00FF94]"
+                        >
                           {badge}
                         </Badge>
                       ))}

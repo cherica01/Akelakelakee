@@ -11,7 +11,16 @@ export function Hero() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
-            <h2 className="text-gray-400 text-xl">Back-end developer, Integrator</h2>
+          <h2
+  className="text-blue-800 text-3xl font-mono mt-4"
+  style={{
+    textShadow: '0 0 15px #00f7ff, 0 0 25px #00f7ff, 0 0 35px #00f7ff', // Ombre lumineuse avec un bleu clair
+    color: '#00f7ff', // Bleu lumineux
+  }}
+>
+  Back-end developer, Integrator
+</h2>
+
             <AnimatedIntro />
              
             <p className="text-gray-400 max-w-lg">
