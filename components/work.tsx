@@ -71,12 +71,12 @@ export function Work() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <Card 
-              key={project.id} 
-              className="bg-zinc-900 border-zinc-800 overflow-hidden group cursor-pointer"
-              onClick={() => setExpandedCard(expandedCard === project.id ? null : project.id)}
-              style={{ marginBottom: "1.5rem" }} // Ajout d'espacement entre les cartes
-            >
+           <Card 
+           key={project.id} 
+           className="bg-zinc-900 border-zinc-800 overflow-hidden group cursor-pointer hover:border-[#00FF94] transition-all duration-300"
+           onClick={() => setExpandedCard(expandedCard === project.id ? null : project.id)}
+           style={{ marginBottom: "1.5rem" }} // Ajout d'espacement entre les cartes
+         >
               <CardContent className="p-0 relative h-[300px] overflow-hidden group">
                 <Image
                   src={project.image || "/placeholder.svg"}

@@ -80,7 +80,7 @@ export function Contact() {
           <Card className="bg-zinc-900 border-zinc-800">
             <CardHeader>
               <Phone className="h-12 w-12 text-[#00FF94] mb-4" />
-              <CardTitle className="text-white">Phone</CardTitle>
+              <CardTitle className="text-white">WhatsApp</CardTitle>
               <CardDescription className="text-gray-400">
                 +261 38 40 790 08 
               </CardDescription>

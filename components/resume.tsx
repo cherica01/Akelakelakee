@@ -16,7 +16,7 @@ export function Resume() {
           <div>
             <h3 className="text-2xl font-bold text-white mb-6 text-center">Education</h3>
             <div className="space-y-4">
-              <Card className="bg-zinc-900 border-zinc-800 h-full">
+              <Card className="bg-zinc-900 border-zinc-800 h-full hover:border-[#00FF94] transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="text-white">Obtaining a certification in Responsive Web Design.</CardTitle>
                   <p className="text-[#00FF94]">2024 - 2025</p>
@@ -26,7 +26,7 @@ export function Resume() {
                   <p className="mt-2">Responsive Web Design Certification, showcasing expertise in creating adaptable and user-friendly web interfaces.</p>
                 </CardContent>
               </Card>
-              <Card className="bg-zinc-900 border-zinc-800 h-full">
+              <Card className="bg-zinc-900 border-zinc-800 h-full hover:border-[#00FF94] transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="text-white">Bachelor's degree (Bac+3) in Computer Science, Risk, and Decision </CardTitle>
                   <p className="text-[#00FF94]">2024 - 2025</p>
@@ -43,7 +43,7 @@ export function Resume() {
           <div>
             <h3 className="text-2xl font-bold text-white mb-6 text-center">Experience</h3>
             <div className="space-y-4">
-              <Card className="bg-zinc-900 border-zinc-800 h-full">
+              <Card className="bg-zinc-900 border-zinc-800 h-full hover:border-[#00FF94] transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="text-white">Back-end developer, Integrator</CardTitle>
                   <p className="text-[#00FF94]">2024 - Present</p>
@@ -57,7 +57,7 @@ export function Resume() {
                   </div>
                 </CardContent>
               </Card>
-              <Card className="bg-zinc-900 border-zinc-800 h-full">
+              <Card className="bg-zinc-900 border-zinc-800 h-full hover:border-[#00FF94] transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="text-white">4-month internship as a back-end and full-stack developer</CardTitle>
                   <p className="text-[#00FF94]">2023, 2024</p>

@@ -24,8 +24,7 @@ export function Hero() {
             <AnimatedIntro />
              
             <p className="text-gray-400 max-w-lg">
-              I excel at crafting elegant digital experiences, and I am proficient in various programming languages and
-              technologies.
+            I am a young developer specializing in creating elegant digital experiences, and I am proficient in various programming languages and technologies.
             </p>
             <div className="flex flex-wrap gap-4">
               <a
