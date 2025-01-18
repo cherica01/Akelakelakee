@@ -23,7 +23,7 @@ export function Work() {
       id: 2,
       title: "Library Management",
       description: "A library management system for admin and client; management of books, loans, and reservations.",
-      image: "/images/Bib.png",
+      image: "/images/bib.png",
       badges: ["Php", "Html&css", "Sql"],
       github: "https://github.com/cherica01/gestion_bibliotheque",
     },
