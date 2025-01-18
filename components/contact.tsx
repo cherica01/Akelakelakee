@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useState } from "react";
+"use client";import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,7 +12,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin } from "lucide-react";
 
-
 export function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -26,12 +23,15 @@ export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  // Correction ici : Changer le type de l'événement en FormEvent
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -82,7 +82,7 @@ export function Contact() {
               <Phone className="h-12 w-12 text-[#00FF94] mb-4" />
               <CardTitle className="text-white">WhatsApp</CardTitle>
               <CardDescription className="text-gray-400">
-                +261 38 40 790 08 
+                +261 38 40 790 08
               </CardDescription>
             </CardHeader>
           </Card>
@@ -91,7 +91,7 @@ export function Contact() {
               <MapPin className="h-12 w-12 text-[#00FF94] mb-4" />
               <CardTitle className="text-white">Location</CardTitle>
               <CardDescription className="text-gray-400">
-                Antananarivo , Madagascar 
+                Antananarivo , Madagascar
               </CardDescription>
             </CardHeader>
           </Card>

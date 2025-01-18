@@ -25,6 +25,9 @@ const BinaryBackground: React.FC = () => {
     }
 
     function draw() {
+      const canvas = canvasRef.current
+      if (!canvas || !ctx) return // Vérifie que canvas et ctx existent
+
       // Dessine un fond semi-transparent pour estomper légèrement les caractères précédents
       ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -47,10 +50,17 @@ const BinaryBackground: React.FC = () => {
 
     const intervalId = setInterval(draw, 33)
 
+    // Nettoyage à la désinstallation du composant
     return () => clearInterval(intervalId)
   }, [])
 
-  return <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full -z-10" />
+  return (
+    <canvas
+      ref={canvasRef}
+      className="fixed top-0 left-0 w-full h-full -z-10"
+      aria-hidden="true" // Accessibilité : Indique que ce canvas est décoratif
+    />
+  )
 }
 
 export default BinaryBackground
