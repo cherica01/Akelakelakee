@@ -5,13 +5,14 @@ import { CardContent, CardDescription, CardHeader, CardTitle } from "@/component
 import { motion } from "framer-motion";
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0.1, y: 50 }, // Opacity starts at 0.1 to avoid total invisibility
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.2, // Delay each card by 0.2s
-      duration: 0.5,
+      delay: i * 0.3,
+      duration: 0.8,
+      ease: "easeOut",  // A smoother easing function to avoid a hard "pop" effect
     },
   }),
 };
@@ -22,10 +23,10 @@ export function Services() {
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-12"
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0.1, y: -20 }} // Set opacity to 0.1 initially
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ margin: "-100px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <h2 className="text-3xl font-bold text-white mb-4">My Services</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
@@ -47,7 +48,7 @@ export function Services() {
               key={index}
               custom={index} // Custom index for stagger effect
               variants={cardVariants}
-              className="bg-zinc-900 border-zinc-800 hover:border-[#00FF94] transition-colors mx-auto p-6 rounded-lg"
+              className="bg-zinc-900 border-6 border-[#00FF55] hover:border-[#00FF44] transition-all duration-500 mx-auto p-6 rounded-lg group shadow-[0_0_20px_rgba(0,255,85,0.7)]"
             >
               <CardHeader>
                 {service.icon}

@@ -1,16 +1,18 @@
-"use client";
+'use client';
+
 import { Badge } from "@/components/ui/badge";
 import { CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: (i:number) => ({
+  hidden: { opacity: 0.1, y: 50 }, // Initial opacity at 0.1 to avoid flickering
+  visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.5,
-      duration: 0.6,
+      delay: i * 0.4, // Delay each card by 0.4s for staggered animation
+      duration: 1,    // Longer duration for a smoother transition
+      ease: "easeOut", // Smooth easing for a natural animation
     },
   }),
 };
@@ -51,10 +53,10 @@ export function Resume() {
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-12"
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0.1, y: -20 }} // Set opacity to 0.1 initially
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ margin: "-100px", once: false }} // Relance à chaque vue
-          transition={{ duration: 0.5 }}
+          viewport={{ margin: "-100px", once: false }}
+          transition={{ duration: 1, ease: "easeOut" }}
         >
           <h2 className="text-3xl font-bold text-white mb-4">Resume</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
@@ -65,7 +67,7 @@ export function Resume() {
           className="grid md:grid-cols-2 gap-8"
           initial="hidden"
           whileInView="visible"
-          viewport={{ margin: "-100px", once: false }} // Relance à chaque vue
+          viewport={{ margin: "-100px", once: false }}
         >
           {/* Education Section */}
           <div>
@@ -76,7 +78,7 @@ export function Resume() {
                   key={index}
                   custom={index}
                   variants={cardVariants}
-                  className="bg-zinc-900 border-zinc-800 hover:border-[#00FF94] transition-colors p-6 rounded-lg"
+                  className="bg-zinc-900 border-6 border-[#00FF55] hover:border-[#00FF33] transition-all duration-500 p-6 rounded-lg shadow-[0_0_20px_rgba(0,255,85,0.6)]"
                   viewport={{ once: false }} // Relance l'animation à chaque vue
                 >
                   <CardHeader>
@@ -101,7 +103,7 @@ export function Resume() {
                   key={index}
                   custom={index + educationData.length}
                   variants={cardVariants}
-                  className="bg-zinc-900 border-zinc-800 hover:border-[#00FF94] transition-colors p-6 rounded-lg"
+                  className="bg-zinc-900 border-6 border-[#00FF55] hover:border-[#00FF33] transition-all duration-500 p-6 rounded-lg shadow-[0_0_20px_rgba(0,255,85,0.6)]"
                   viewport={{ once: false }} // Relance l'animation à chaque vue
                 >
                   <CardHeader>

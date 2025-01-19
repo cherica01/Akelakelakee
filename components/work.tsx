@@ -99,88 +99,90 @@ export function Work() {
               custom={index} // Passe l'index comme variable pour le délai
               variants={cardVariants}
             >
-              <Card
-                className="bg-zinc-900 border-zinc-800 overflow-hidden group cursor-pointer hover:border-[#00FF94] transition-all duration-300"
-                onClick={() => setExpandedCard(expandedCard === project.id ? null : project.id)}
-                style={{ marginBottom: "1.5rem" }}
-              >
-                <CardContent className="p-0 relative h-[300px] overflow-hidden group">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    width={600}
-                    height={400}
-                    style={{ objectFit: "cover" }}
-                    className={`transition-all duration-300 ${
-                      expandedCard === project.id ? "opacity-20 blur-md" : "opacity-100"
-                    }`}
-                  />
-                  <div
-                    className={`absolute bottom-0 left-0 w-full bg-black/30 px-4 py-3 transition-opacity duration-300 ${
-                      expandedCard === project.id ? "opacity-40" : "opacity-80"
-                    }`}
-                    style={{ zIndex: 10 }}
-                  >
-                    <h3
-                      className={`text-2xl font-extrabold transition-colors duration-300 ${
-                        expandedCard === project.id ? "text-black" : "text-white"
-                      } drop-shadow-[0_0_10px_rgba(255,255,255,0.9)] z-20`}
-                    >
-                      {project.title}
-                    </h3>
-                  </div>
-                  <div
-                    className={`absolute inset-0 bg-black/90 flex flex-col justify-end p-6 transition-transform duration-300 ${
-                      expandedCard === project.id
-                        ? "translate-y-0"
-                        : "translate-y-[calc(100%-4rem)]"
-                    }`}
-                  >
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ${
-                        expandedCard === project.id ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
-                      }`}
-                    >
-                      <p className="text-lg text-[#E6E6E6] mb-4">{project.description}</p>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.badges.map((badge, index) => (
-                          <Badge
-                            key={index}
-                            variant="outline"
-                            className="border-[#00FF94] text-[#00FF94]"
-                          >
-                            {badge}
-                          </Badge>
-                        ))}
-                      </div>
-                      <div className="flex gap-4">
-                        {project.github && (
-                          <a
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-white hover:text-[#00FF94] transition-colors"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <FaGithub size={24} />
-                          </a>
-                        )}
-                        {project.liveLink && (
-                          <a
-                            href={project.liveLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-white hover:text-[#00FF94] transition-colors"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <FaExternalLinkAlt size={24} />
-                          </a>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+         <Card
+  className="bg-zinc-900 border-6 border-[#00FF94] overflow-hidden group cursor-pointer transition-all duration-300 shadow-[0_0_20px_rgba(0,255,148,0.7),0_0_40px_rgba(255,255,255,0.3)]"
+  onClick={() => setExpandedCard(expandedCard === project.id ? null : project.id)}
+  style={{ marginBottom: "1.5rem" }}
+>
+  <CardContent className="p-0 relative h-[300px] overflow-hidden group">
+    <Image
+      src={project.image || "/placeholder.svg"}
+      alt={project.title}
+      width={600}
+      height={400}
+      style={{ objectFit: "cover" }}
+      className={`transition-all duration-300 ${
+        expandedCard === project.id ? "opacity-20 blur-md" : "opacity-100"
+      }`}
+    />
+    <div
+      className={`absolute bottom-0 left-0 w-full bg-black/30 px-4 py-3 transition-opacity duration-300 ${
+        expandedCard === project.id ? "opacity-40" : "opacity-80"
+      }`}
+      style={{ zIndex: 10 }}
+    >
+      <h3
+        className={`text-2xl font-extrabold transition-colors duration-300 ${
+          expandedCard === project.id ? "text-black" : "text-white"
+        } drop-shadow-[0_0_10px_rgba(255,255,255,0.9)] z-20`}
+      >
+        {project.title}
+      </h3>
+    </div>
+    <div
+      className={`absolute inset-0 bg-black/90 flex flex-col justify-end p-6 transition-transform duration-300 ${
+        expandedCard === project.id
+          ? "translate-y-0"
+          : "translate-y-[calc(100%-4rem)]"
+      }`}
+    >
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          expandedCard === project.id ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <p className="text-lg text-[#E6E6E6] mb-4">{project.description}</p>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.badges.map((badge, index) => (
+            <Badge
+              key={index}
+              variant="outline"
+              className="border-[#00FF94] text-[#00FF94]"
+            >
+              {badge}
+            </Badge>
+          ))}
+        </div>
+        <div className="flex gap-4">
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-[#00FF94] transition-colors"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <FaGithub size={24} />
+            </a>
+          )}
+          {project.liveLink && (
+            <a
+              href={project.liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-[#00FF94] transition-colors"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <FaExternalLinkAlt size={24} />
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  </CardContent>
+</Card>
+
+
             </motion.div>
           ))}
         </div>
