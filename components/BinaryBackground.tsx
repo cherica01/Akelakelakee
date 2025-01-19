@@ -33,7 +33,7 @@ const BinaryBackground: React.FC = () => {
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
       // Définir la couleur bleue avec une opacité réduite
-      ctx.fillStyle = 'rgba(0, 0, 255, 0.7)' // Bleu clair avec 30% d'opacité
+      ctx.fillStyle = 'rgba(0, 0, 255, 0.8)' // Bleu clair avec 30% d'opacité
       ctx.font = `${fontSize}px monospace`
 
       for (let i = 0; i < drops.length; i++) {
