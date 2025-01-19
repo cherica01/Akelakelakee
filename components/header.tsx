@@ -123,54 +123,58 @@ export function Header() {
   </div>
 
   {/* Mobile Menu */}
-  {isMenuOpen && (
-    <div className="md:hidden bg-black/90">
-      <nav className="flex flex-row items-center justify-around gap-4 py-4">
-        <Link
-          href="#home"
-          className="text-white hover:text-[#FFFFFF] transition-colors font-bold"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          Home
-        </Link>
-        <Link
-          href="#services"
-          className="text-white hover:text-[#FFFFFF] transition-colors font-bold"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          Services
-        </Link>
-        <Link
-          href="#resume"
-          className="text-white hover:text-[#FFFFFF] transition-colors font-bold"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          Resume
-        </Link>
-        <Link
-          href="#work"
-          className="text-white hover:text-[#FFFFFF] transition-colors font-bold"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          Work
-        </Link>
-        <Link
-          href="#contact"
-          className="text-white hover:text-[#FFFFFF] transition-colors font-bold"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          Contact
-        </Link>
-        <Button
-              variant="outline"
-              className="border-[#00FF94] text-[#00FF94] hover:bg-[#00FF94] hover:text-black"
-              onClick={handleWhatsAppClick}
-            >
-              Let&apos;s Talk
-            </Button>
-      </nav>
-    </div>
-  )}
+{/* Mobile Menu */}
+{isMenuOpen && (
+  <div className="md:hidden bg-black/5">
+    <nav className="flex flex-col items-center justify-center gap-6 py-6">
+      <Link
+        href="#home"
+        className="text-white hover:text-[#FFFFFF] transition-colors font-bold"
+        onClick={() => setIsMenuOpen(false)}
+      >
+        Home
+      </Link>
+      <Link
+        href="#services"
+        className="text-white hover:text-[#FFFFFF] transition-colors font-bold"
+        onClick={() => setIsMenuOpen(false)}
+      >
+        Services
+      </Link>
+      <Link
+        href="#resume"
+        className="text-white hover:text-[#FFFFFF] transition-colors font-bold"
+        onClick={() => setIsMenuOpen(false)}
+      >
+        Resume
+      </Link>
+      <Link
+        href="#work"
+        className="text-white hover:text-[#FFFFFF] transition-colors font-bold"
+        onClick={() => setIsMenuOpen(false)}
+      >
+        Work
+      </Link>
+      <Link
+        href="#contact"
+        className="text-white hover:text-[#FFFFFF] transition-colors font-bold"
+        onClick={() => setIsMenuOpen(false)}
+      >
+        Contact
+      </Link>
+      <Button
+        variant="outline"
+        className="border-[#00FF94] text-[#00FF94] hover:bg-[#00FF94] hover:text-black"
+        onClick={handleWhatsAppClick}
+      >
+        Let&apos;s Talk
+      </Button>
+    </nav>
+  </div>
+)}
+
+
+  
 </header>
 
   );
