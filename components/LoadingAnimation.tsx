@@ -6,7 +6,7 @@ const HackerLoadingAnimation = () => {
   const [showError, setShowError] = useState(true); // État pour afficher l'erreur
   const [showJoke, setShowJoke] = useState(false); // État pour afficher la blague
   const [jokeText, setJokeText] = useState("");
-  const fullJokeText = "Je blague, Bonjour de la part de Cherica";
+  const fullJokeText = "Je blague 🤣, Bonjour de la part de Cherica 👋";
 
   useEffect(() => {
     // Affiche l'erreur pendant 1 seconde
@@ -21,14 +21,15 @@ const HackerLoadingAnimation = () => {
   useEffect(() => {
     if (showJoke) {
       let index = 0;
+      setJokeText(""); // Réinitialise le texte à chaque activation de la blague
       const intervalId = setInterval(() => {
         if (index < fullJokeText.length) {
-          setJokeText((prev) => prev + fullJokeText[index]);
+          setJokeText((prev) => prev + fullJokeText.charAt(index));
           index++;
         } else {
           clearInterval(intervalId); // Arrête l'animation quand tout est écrit
         }
-      }, 30); // Intervalle pour l'effet de saisie (50 ms par caractère)
+      }, 30); // Intervalle pour l'effet de saisie (30 ms par caractère)
 
       return () => clearInterval(intervalId); // Nettoie l'intervalle
     }
@@ -36,7 +37,7 @@ const HackerLoadingAnimation = () => {
 
   return (
     <div className="hacker-animation">
-      <div className="glitch-text">ERREUR 404</div>
+      {showError && <div className="glitch-text">ERREUR 404</div>}
       {showJoke && <div className="joke-text">{jokeText}</div>}
       <div className="matrix-bg"></div>
       <style jsx>{`
@@ -99,8 +100,7 @@ const HackerLoadingAnimation = () => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default HackerLoadingAnimation
-
+export default HackerLoadingAnimation;
