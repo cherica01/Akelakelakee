@@ -10,7 +10,7 @@ const LoadingManager = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     setIsLoading(true);
-    const timeout = setTimeout(() => setIsLoading(false), 5000); // 4 secondes
+    const timeout = setTimeout(() => setIsLoading(false), 3500); // 4 secondes
     return () => clearTimeout(timeout);
   }, [pathname]);
 

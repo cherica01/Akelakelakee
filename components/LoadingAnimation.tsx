@@ -1,35 +1,38 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react";
 
 const HackerLoadingAnimation = () => {
-  const [showJoke, setShowJoke] = useState(false)
-  const [jokeText, setJokeText] = useState("")
-  const fullJokeText = "Je blague, Bonjour de la part de Cherica"
+  const [showError, setShowError] = useState(true); // État pour afficher l'erreur
+  const [showJoke, setShowJoke] = useState(false); // État pour afficher la blague
+  const [jokeText, setJokeText] = useState("");
+  const fullJokeText = "Je blague, Bonjour de la part de Cherica";
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowJoke(true)
-    }, 2000)
+    // Affiche l'erreur pendant 1 seconde
+    const errorTimer = setTimeout(() => {
+      setShowError(false); // Cache l'erreur
+      setShowJoke(true); // Active la blague
+    }, 1000);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(errorTimer); // Nettoie le timer si le composant est démonté
+  }, []);
 
   useEffect(() => {
     if (showJoke) {
-      let index = 0
+      let index = 0;
       const intervalId = setInterval(() => {
         if (index < fullJokeText.length) {
-          setJokeText((prev) => prev + fullJokeText[index])
-          index++
+          setJokeText((prev) => prev + fullJokeText[index]);
+          index++;
         } else {
-          clearInterval(intervalId)
+          clearInterval(intervalId); // Arrête l'animation quand tout est écrit
         }
-      }, 50) // Reduced interval for faster typing
+      }, 30); // Intervalle pour l'effet de saisie (50 ms par caractère)
 
-      return () => clearInterval(intervalId)
+      return () => clearInterval(intervalId); // Nettoie l'intervalle
     }
-  }, [showJoke])
+  }, [showJoke]);
 
   return (
     <div className="hacker-animation">
