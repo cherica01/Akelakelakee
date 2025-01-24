@@ -42,7 +42,7 @@ const Footer = () => {
           </a>
         </div>
         <p className="mt-6 text-xs text-gray-600">
-          <span className="text-red-400">#</span> Code the Matrix, Hack the World 🌌
+          <span className="text-red-400">#</span> NexusCraft
         </p>
       </div>
     </footer>
