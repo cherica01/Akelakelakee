@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Facebook, Mail } from "lucide-react";
 import BinaryBackground from "@/components/BinaryBackground";
@@ -6,8 +7,22 @@ import AnimatedIntro from "@/components/AnimatedIntro";
 import AnimatedProfileImage from "@/components/AnimatedProfile";
 import { useTheme } from "@/components/ThemeContext";
 import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
+import { useEffect, useState } from "react";
 
 export function Hero() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const { ref, inView } = useInView({
+    threshold: 0.3, // Se déclenche lorsque 30% de l'élément est visible
+  });
+
+  useEffect(() => {
+    if (inView) {
+      setIsVisible(true); // Active le compteur uniquement lorsqu'il est visible
+    }
+  }, [inView]);
+
   return (
     <section className="min-h-screen flex items-center pt-20 relative overflow-hidden">
       <BinaryBackground />
@@ -19,7 +34,8 @@ export function Hero() {
               style={{
                 position: "relative",
                 top: "60px",
-                textShadow: "0 0 15px #00f7ff, 0 0 25px #00f7ff, 0 0 35px #00f7ff",
+                textShadow:
+                  "0 0 15px #00f7ff, 0 0 25px #00f7ff, 0 0 35px #00f7ff",
                 color: "#00f7ff",
               }}
             >
@@ -29,8 +45,9 @@ export function Hero() {
             <AnimatedIntro />
 
             <p className="text-gray-400 max-w-lg">
-              I am a young developer specializing in creating elegant digital experiences, and I
-              am proficient in various programming languages and technologies.
+              I am a young developer specializing in creating elegant digital
+              experiences, and I am proficient in various programming languages
+              and technologies.
             </p>
             <div className="flex flex-wrap gap-4">
               <a
@@ -41,8 +58,16 @@ export function Hero() {
                 DOWNLOAD CV
               </a>
               <div className="flex gap-4">
-                <a href="https://github.com/cherica01" target="_blank" rel="noopener noreferrer">
-                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+                <a
+                  href="https://github.com/cherica01"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="text-gray-400 hover:text-white"
+                  >
                     <Github className="h-5 w-5" />
                   </Button>
                 </a>
@@ -51,7 +76,11 @@ export function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="text-gray-400 hover:text-white"
+                  >
                     <Linkedin className="h-5 w-5" />
                   </Button>
                 </a>
@@ -60,12 +89,20 @@ export function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="text-gray-400 hover:text-white"
+                  >
                     <Facebook className="h-5 w-5" />
                   </Button>
                 </a>
                 <a href="mailto:riantsoacherica01@gmail.com">
-                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="text-gray-400 hover:text-white"
+                  >
                     <Mail className="h-5 w-5" />
                   </Button>
                 </a>
@@ -84,31 +121,40 @@ export function Hero() {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20">
-          <div className="text-center">
-            <h3 className="text-6xl font-bold text-white">
-              <CountUp start={0} end={3} duration={6} />
-            </h3>
-            <p className="text-gray-400 text-sm">Years of experience</p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-6xl font-bold text-white">
-              <CountUp start={0} end={16} duration={4} />
-            </h3>
-            <p className="text-gray-400 text-sm">Projects completed</p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-6xl font-bold text-white">
-              <CountUp start={0} end={8} duration={4} />
-            </h3>
-            <p className="text-gray-400 text-sm">Technologies mastered</p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-6xl font-bold text-white">
-              <CountUp start={0} end={500} duration={4} />
-            </h3>
-            <p className="text-gray-400 text-sm">Code commits</p>
-          </div>
+
+        {/* Section compteur */}
+        <div
+          ref={ref}
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20"
+        >
+          {isVisible && (
+            <>
+              <div className="text-center">
+                <h3 className="text-6xl font-bold text-white">
+                  <CountUp start={0} end={3} duration={6} />
+                </h3>
+                <p className="text-gray-400 text-sm">Years of experience</p>
+              </div>
+              <div className="text-center">
+                <h3 className="text-6xl font-bold text-white">
+                  <CountUp start={0} end={16} duration={4} />
+                </h3>
+                <p className="text-gray-400 text-sm">Projects completed</p>
+              </div>
+              <div className="text-center">
+                <h3 className="text-6xl font-bold text-white">
+                  <CountUp start={0} end={8} duration={4} />
+                </h3>
+                <p className="text-gray-400 text-sm">Technologies mastered</p>
+              </div>
+              <div className="text-center">
+                <h3 className="text-6xl font-bold text-white">
+                  <CountUp start={0} end={500} duration={4} />
+                </h3>
+                <p className="text-gray-400 text-sm">Code commits</p>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </section>
