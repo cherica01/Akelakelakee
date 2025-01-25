@@ -18,6 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
+      <head>
+        {/* Ajoutez votre favicon ici */}
+        <link rel="icon" href="/images/Screenshot_20241207-213145~2.png" type="image/png" /> {/* Remplacez par le chemin de votre fichier */}
+      </head>
       <body className={`${inter.variable} ${jetBrainsMono.variable} font-sans bg-black`}>
         <LoadingManager>{children}</LoadingManager> {/* Encapsulation */}
       </body>
