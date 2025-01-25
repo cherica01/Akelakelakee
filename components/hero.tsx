@@ -127,30 +127,37 @@ export function Hero() {
   ref={ref}
   className="flex justify-center" // Centre horizontalement
 >
-  <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20">
-    {isVisible && (
-      <>
-        <div className="text-center">
-          <h3 className="text-6xl font-bold text-white">
-            <CountUp start={0} end={16} duration={4} />
-          </h3>
-          <p className="text-gray-400 text-sm">Projects completed</p>
-        </div>
-        <div className="text-center">
-          <h3 className="text-6xl font-bold text-white">
-            <CountUp start={0} end={8} duration={4} />
-          </h3>
-          <p className="text-gray-400 text-sm">Technologies used</p>
-        </div>
-        <div className="text-center">
+<div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20">
+  {isVisible && (
+    <>
+      {/* Projects completed */}
+      <div className="text-center">
+        <h3 className="text-6xl font-bold text-white">
+          <CountUp start={0} end={16} duration={4} />
+        </h3>
+        <p className="text-gray-400 text-sm">Projects completed</p>
+      </div>
+
+      {/* Technologies used */}
+      <div className="text-center">
+        <h3 className="text-6xl font-bold text-white">
+          <CountUp start={0} end={8} duration={4} />
+        </h3>
+        <p className="text-gray-400 text-sm">Technologies used</p>
+      </div>
+
+      {/* Code commits */}
+      <div className="col-span-2 flex justify-center items-center text-center md:col-span-1">
+        <div>
           <h3 className="text-6xl font-bold text-white">
             <CountUp start={0} end={500} duration={4} />
           </h3>
-          <p className="text-gray-400 text-sm">Code commits</p>
+          <p className="text-gray-400 text-sm mt-2">Code commits</p>
         </div>
-      </>
-    )}
-  </div>
+      </div>
+    </>
+  )}
+</div>
 </div>
       </div>
     </section>
