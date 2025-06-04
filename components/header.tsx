@@ -164,6 +164,7 @@ export function Header() {
       </Link>
       <Button
         variant="outline"
+        
         className="border-[#00FF94] text-[#00FF94] hover:bg-[#00FF94] hover:text-black"
         onClick={handleWhatsAppClick}
       >
