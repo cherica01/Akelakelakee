@@ -56,17 +56,17 @@ export function Resume() {
 
   const attestationData = [
     {
-      title: "Transformez votre vision en start-up",
+      title: "Transform Your Vision Into a Startup",
       date: "2025",
       content:
-        "Formation en entrepreneuriat axée sur la transformation d'idées en projets de start-up viables avec des stratégies de développement commercial.",
+        "Entrepreneurship training focused on transforming ideas into viable startup ventures with business development strategies.",
       institution: "Orange Digital Center (O.D.C)",
     },
     {
-      title: "Maîtrisez les Techniques du Web Scraping",
+      title: "Master Web Scraping Techniques",
       date: "2025",
       content:
-        "Formation complète sur les techniques de web scraping, méthodes d'extraction de données et outils d'automatisation pour la collecte de données web.",
+        "Comprehensive training on web scraping techniques, data extraction methods, and automation tools for web data collection.",
       institution: "Orange Digital Center (O.D.C)",
     },
   ]
@@ -231,7 +231,7 @@ export function Resume() {
                 >
                   <CardHeader className="px-0 pt-0">
                     <div className="flex items-center gap-2 mb-2">
-                      <Badge className="bg-green-600 text-white text-xs">CERTIFICAT</Badge>
+                      <Badge className="bg-green-600 text-white text-xs">CERTIFICATE</Badge>
                     </div>
                     <CardTitle className="text-white text-lg">{cert.title}</CardTitle>
                     <p className="text-[#00FF94]">{cert.date}</p>
@@ -248,7 +248,7 @@ export function Resume() {
           {/* Right Column - Attestations */}
           <motion.div initial="hidden" whileInView="visible" viewport={{ margin: "-100px", once: false }}>
             <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center">
-              <FaAward className="mr-2" /> Formations
+              <FaAward className="mr-2" /> Training
             </h3>
             <div className="space-y-4">
               {attestationData.map((attestation, index) => (
@@ -261,7 +261,7 @@ export function Resume() {
                 >
                   <CardHeader className="px-0 pt-0">
                     <div className="flex items-center gap-2 mb-2">
-                      <Badge className="bg-blue-600 text-white text-xs">ATTESTATION</Badge>
+                      <Badge className="bg-blue-600 text-white text-xs">TRAINING CERTIFICATE</Badge>
                     </div>
                     <CardTitle className="text-white text-lg">{attestation.title}</CardTitle>
                     <p className="text-[#00FF94]">{attestation.date}</p>
