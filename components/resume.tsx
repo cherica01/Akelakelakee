@@ -3,7 +3,7 @@
 import { Badge } from "@/components/ui/badge"
 import { CardHeader, CardContent, CardTitle } from "@/components/ui/card"
 import { motion } from "framer-motion"
-import { FaGraduationCap, FaBriefcase, FaCode, FaCertificate } from "react-icons/fa"
+import { FaGraduationCap, FaBriefcase, FaCode, FaCertificate, FaAward } from "react-icons/fa"
 import {
   SiDjango,
   SiPython,
@@ -40,29 +40,34 @@ export function Resume() {
 
   const certificationData = [
     {
-      title: "Responsive Web Design Certification",
+      title: "Responsive Web Design",
       date: "2024 - 2025",
       content: "Showcasing expertise in creating adaptable and user-friendly web interfaces.",
-      institution: "Freecodecamp",
-    },
-    // Space for 3 more certifications
-    {
-      title: "Certification Title",
-      date: "Year",
-      content: "Description of the certification",
-      institution: "Institution",
+      institution: "FreeCodeCamp",
     },
     {
-      title: "Certification Title",
-      date: "Year",
-      content: "Description of the certification",
-      institution: "Institution",
+      title: "Javascript Algorithms and Data Structures",
+      date: "2025",
+      content:
+        "Advanced certification covering JavaScript programming fundamentals, algorithms, and data structure implementation.",
+      institution: "FreeCodeCamp",
+    },
+  ]
+
+  const attestationData = [
+    {
+      title: "Transformez votre vision en start-up",
+      date: "2025",
+      content:
+        "Formation en entrepreneuriat axée sur la transformation d'idées en projets de start-up viables avec des stratégies de développement commercial.",
+      institution: "Orange Digital Center (O.D.C)",
     },
     {
-      title: "Certification Title",
-      date: "Year",
-      content: "Description of the certification",
-      institution: "Institution",
+      title: "Maîtrisez les Techniques du Web Scraping",
+      date: "2025",
+      content:
+        "Formation complète sur les techniques de web scraping, méthodes d'extraction de données et outils d'automatisation pour la collecte de données web.",
+      institution: "Orange Digital Center (O.D.C)",
     },
   ]
 
@@ -146,12 +151,12 @@ export function Resume() {
         </motion.div>
 
         {/* Main Content Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Left Column */}
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* Left Column - Education & Experience */}
           <div className="space-y-8">
             {/* Education Section */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ margin: "-100px", once: false }}>
-              <h3 className="text-3xl font-bold text-white mb-6 text-center flex items-center justify-center">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center">
                 <FaGraduationCap className="mr-2" /> Education
               </h3>
               <div className="space-y-4">
@@ -164,11 +169,11 @@ export function Resume() {
                     viewport={{ once: false }}
                   >
                     <CardHeader className="px-0 pt-0">
-                      <CardTitle className="text-white">{edu.title}</CardTitle>
+                      <CardTitle className="text-white text-lg">{edu.title}</CardTitle>
                       <p className="text-[#00FF94]">{edu.date}</p>
                     </CardHeader>
                     <CardContent className="text-gray-400 px-0 pb-0">
-                      <p>{edu.institution}</p>
+                      <p className="font-semibold">{edu.institution}</p>
                       <p className="mt-2">{edu.content}</p>
                     </CardContent>
                   </motion.div>
@@ -178,7 +183,7 @@ export function Resume() {
 
             {/* Experience Section */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ margin: "-100px", once: false }}>
-              <h3 className="text-3xl font-bold text-white mb-6 text-center flex items-center justify-center">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center">
                 <FaBriefcase className="mr-2" /> Experience
               </h3>
               <div className="space-y-4">
@@ -191,11 +196,11 @@ export function Resume() {
                     viewport={{ once: false }}
                   >
                     <CardHeader className="px-0 pt-0">
-                      <CardTitle className="text-white">{exp.title}</CardTitle>
+                      <CardTitle className="text-white text-lg">{exp.title}</CardTitle>
                       <p className="text-[#00FF94]">{exp.date}</p>
                     </CardHeader>
                     <CardContent className="px-0 pb-0">
-                      <p className="text-gray-400 mb-4">{exp.company}</p>
+                      <p className="text-gray-400 mb-4 font-semibold">{exp.company}</p>
                       <div className="flex flex-wrap gap-2">
                         {exp.skills.map((skill, idx) => (
                           <Badge key={idx} variant="outline" className="border-[#00FF94] text-[#00FF94]">
@@ -210,9 +215,9 @@ export function Resume() {
             </motion.div>
           </div>
 
-          {/* Right Column - Certifications */}
+          {/* Middle Column - Certifications */}
           <motion.div initial="hidden" whileInView="visible" viewport={{ margin: "-100px", once: false }}>
-            <h3 className="text-3xl font-bold text-white mb-6 text-center flex items-center justify-center">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center">
               <FaCertificate className="mr-2" /> Certifications
             </h3>
             <div className="space-y-4">
@@ -225,12 +230,45 @@ export function Resume() {
                   viewport={{ once: false }}
                 >
                   <CardHeader className="px-0 pt-0">
-                    <CardTitle className="text-white">{cert.title}</CardTitle>
+                    <div className="flex items-center gap-2 mb-2">
+                      <Badge className="bg-green-600 text-white text-xs">CERTIFICAT</Badge>
+                    </div>
+                    <CardTitle className="text-white text-lg">{cert.title}</CardTitle>
                     <p className="text-[#00FF94]">{cert.date}</p>
                   </CardHeader>
                   <CardContent className="text-gray-400 px-0 pb-0">
-                    <p>{cert.institution}</p>
+                    <p className="font-semibold">{cert.institution}</p>
                     <p className="mt-2">{cert.content}</p>
+                  </CardContent>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right Column - Attestations */}
+          <motion.div initial="hidden" whileInView="visible" viewport={{ margin: "-100px", once: false }}>
+            <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center">
+              <FaAward className="mr-2" /> Formations
+            </h3>
+            <div className="space-y-4">
+              {attestationData.map((attestation, index) => (
+                <motion.div
+                  key={index}
+                  custom={index}
+                  variants={cardVariants}
+                  className="bg-zinc-900 border-2 border-[#00FF55] transition-all duration-500 p-6 rounded-lg"
+                  viewport={{ once: false }}
+                >
+                  <CardHeader className="px-0 pt-0">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Badge className="bg-blue-600 text-white text-xs">ATTESTATION</Badge>
+                    </div>
+                    <CardTitle className="text-white text-lg">{attestation.title}</CardTitle>
+                    <p className="text-[#00FF94]">{attestation.date}</p>
+                  </CardHeader>
+                  <CardContent className="text-gray-400 px-0 pb-0">
+                    <p className="font-semibold">{attestation.institution}</p>
+                    <p className="mt-2">{attestation.content}</p>
                   </CardContent>
                 </motion.div>
               ))}
