@@ -29,7 +29,7 @@ export function Services() {
       icon: <Server className="h-12 w-12 text-[#00FF94] mb-4" />,
       title: "Backend Development",
       description:
-        "Building robust server-side applications and APIs using Django, PHP, and Node.js with secure authentication and data management",
+        "Building robust server-side applications and APIs using Django  with secure authentication and data management",
     },
    
  
