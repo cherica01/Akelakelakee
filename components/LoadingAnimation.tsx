@@ -6,7 +6,7 @@ const HackerLoadingAnimation = () => {
   const [showError, setShowError] = useState(true); // État pour afficher l'erreur
   const [showJoke, setShowJoke] = useState(false); // État pour afficher la blague
   const [jokeText, setJokeText] = useState("");
-  const fullJokeText = "Je blague 🤣, Bonjour de la part de Cherica 👋";
+  const fullJokeText = "Je blague , Bonjour de la part de Cherica 👋";
 
   useEffect(() => {
     // Affiche l'erreur pendant 1 seconde
