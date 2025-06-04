@@ -39,7 +39,7 @@ export function Hero() {
                 color: "#00f7ff",
               }}
             >
-              Back-end developer, Integrator
+              Web developer, Integrator
             </h2>
 
             <AnimatedIntro />
@@ -113,7 +113,7 @@ export function Hero() {
             <div className="relative w-[300px] h-[300px] mx-auto">
               <div className="absolute inset-0 rounded-full border-2 border-[#00FF94] animate-spin-slow" />
               <AnimatedProfileImage
-                src="/images/Screenshot_20241207-213145~2.png"
+                src="/images/fond.jpeg"
                 alt="Profile"
                 width={300}
                 height={300}
