@@ -118,18 +118,18 @@ export function Resume() {
     },
   ]
 
-  const engagementData = [
-    {
-      period: "2023 - À ce jour",
-      organization: "CISCO Ambohimahasoa",
-      tasks: ["Aide au développement et à la gestion des bases de données"],
-    },
-    {
-      period: "2025 - À ce jour",
-      organization: "Zara Hasina",
-      tasks: ["Bénévolat pour maintenir et mettre à jour le site WordPress"],
-    },
-  ]
+ const engagementData = [
+  {
+    period: "2023 - Present",
+    organization: "CISCO Ambohimahasoa",
+    tasks: ["Assisting with database development and management"],
+  },
+  {
+    period: "2025 - Present",
+    organization: "Zara Hasina",
+    tasks: ["Volunteering to maintain and update the WordPress website"],
+  },
+];
 
   const skillsData = [
     { icon: <SiDjango className="w-10 h-10 text-green-500" />, label: "Django" },
