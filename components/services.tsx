@@ -1,6 +1,6 @@
 "use client"
 
-import { Code, Database, Globe, Server, Layers, Palette } from "lucide-react"
+import { Code, Globe, Server } from "lucide-react"
 import { CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { motion } from "framer-motion"
 
