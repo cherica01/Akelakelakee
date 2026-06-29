@@ -26,12 +26,12 @@ export function Resume() {
       content: "Focuses on web development using agile methods, specialized in Python and Django",
       institution: "E.S.M.I.A (École Supérieure de Management et de l'Informatique Appliquée)",
     },
-    {
-      title: "Computer Science Training",
-      date: "2023 - Present",
-      content: "CISCO License preparation in Computer Science",
-      institution: "CISCO Ambohimahasoa",
-    },
+  {
+  title: "High School Diploma (Series D)",
+  date: "2022",
+  content: "Obtained the Malagasy Baccalaureate, Series D",
+  institution: "Sacré-Cœur High School, Ambohimahasoa",
+},
   ]
 
   const experienceData = [
