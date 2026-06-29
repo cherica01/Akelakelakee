@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { Badge } from "@/components/ui/badge"
 import { CardHeader, CardContent, CardTitle } from "@/components/ui/card"
@@ -18,19 +18,6 @@ import {
   SiReact,
 } from "react-icons/si"
 
-const cardVariants = {
-  hidden: { opacity: 0.1, y: 50 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.3,
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  }),
-}
-
 export function Resume() {
   const educationData = [
     {
@@ -44,6 +31,37 @@ export function Resume() {
       date: "2023 - Present",
       content: "CISCO License preparation in Computer Science",
       institution: "CISCO Ambohimahasoa",
+    },
+  ]
+
+  const experienceData = [
+    {
+      title: "Back-end Developer & Integrator",
+      date: "2024 - Present",
+      company: "NVA (New Vision Agency)",
+      skills: ["Django", "Next.js", "TypeScript", "AI Integration"],
+      description: "3-month internship developing intelligent event and agent management applications",
+    },
+    {
+      title: "Full-Stack Developer",
+      date: "May 2023 - May 2024",
+      company: "M.E.N (Ministry of National Education)",
+      skills: ["PHP", "MySQL", "Cordova"],
+      description: "Developed library visitor account management systems and web applications",
+    },
+    {
+      title: "Mobile App Developer",
+      date: "May 2024 - June 2024",
+      company: "M.E.N (Ministry of National Education)",
+      skills: ["Mobile Development", "Task Management"],
+      description: "2-month internship: developed mobile application for managing teacher weekly tasks",
+    },
+    {
+      title: "WordPress Volunteer Developer",
+      date: "2025 - Present",
+      company: "Zara Hasina",
+      skills: ["WordPress", "Web Maintenance"],
+      description: "Volunteer work maintaining and updating WordPress website",
     },
   ]
 
@@ -100,34 +118,16 @@ export function Resume() {
     },
   ]
 
-  const experienceData = [
+  const engagementData = [
     {
-      title: "Back-end Developer & Integrator",
-      date: "2024 - Present",
-      company: "NVA (New Vision Agency)",
-      skills: ["Django", "Next.js", "TypeScript", "AI Integration"],
-      description: "3-month internship developing intelligent event and agent management applications",
+      period: "2023 - À ce jour",
+      organization: "CISCO Ambohimahasoa",
+      tasks: ["Aide au développement et à la gestion des bases de données"],
     },
     {
-      title: "Full-Stack Developer",
-      date: "May 2023 - May 2024",
-      company: "M.E.N (Ministry of National Education)",
-      skills: ["PHP", "MySQL", "Cordova"],
-      description: "Developed library visitor account management systems and web applications",
-    },
-    {
-      title: "Mobile App Developer",
-      date: "May 2024 - June 2024",
-      company: "M.E.N (Ministry of National Education)",
-      skills: ["Mobile Development", "Task Management"],
-      description: "2-month internship: developed mobile application for managing teacher weekly tasks",
-    },
-    {
-      title: "WordPress Volunteer Developer",
-      date: "2025 - Present",
-      company: "Zara Hasina",
-      skills: ["WordPress", "Web Maintenance"],
-      description: "Volunteer work maintaining and updating WordPress website",
+      period: "2025 - À ce jour",
+      organization: "Zara Hasina",
+      tasks: ["Bénévolat pour maintenir et mettre à jour le site WordPress"],
     },
   ]
 
@@ -145,24 +145,23 @@ export function Resume() {
     { icon: <SiC className="w-10 h-10 text-gray-600" />, label: "C" },
   ]
 
-  const engagementData = [
-    {
-      title: "Community Developer Advocate",
-      description: "Active participant in developer communities, sharing knowledge and best practices",
-    },
-    {
-      title: "Open Source Contributor",
-      description: "Contributing to open-source projects and sharing code solutions with the developer community",
-    },
-    {
-      title: "Tech Mentorship",
-      description: "Mentoring junior developers and helping them grow their technical skills",
-    },
-  ]
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (custom: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: custom * 0.1,
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    }),
+  }
 
   return (
     <section id="resume" className="py-20 bg-zinc-900/50">
       <div className="container mx-auto px-4">
+        {/* Header */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0.1, y: -20 }}
@@ -219,79 +218,105 @@ export function Resume() {
           </motion.div>
         </motion.div>
 
+        {/* Experience Section - Full Width */}
+        <motion.div
+          className="mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ margin: "-100px", once: false }}
+        >
+          <motion.div
+            className="text-center mb-8"
+            initial={{ opacity: 0.1, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ margin: "-100px", once: false }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <h3 className="text-3xl font-bold text-white flex items-center justify-center gap-3">
+              <FaBriefcase className="text-[#00FF94]" /> Professional Experience
+            </h3>
+            <p className="text-gray-400 mt-2">Work history and projects</p>
+          </motion.div>
 
+          <div className="grid lg:grid-cols-2 gap-6">
+            {experienceData.map((exp, index) => (
+              <motion.div
+                key={index}
+                custom={index}
+                variants={cardVariants}
+                className="bg-zinc-900 border-2 border-[#00FF94] hover:border-[#00FF55] hover:shadow-lg hover:shadow-[#00FF94]/30 transition-all duration-300 p-6 rounded-lg"
+                viewport={{ once: false }}
+              >
+                <CardHeader className="px-0 pt-0">
+                  <CardTitle className="text-white text-lg">{exp.title}</CardTitle>
+                  <p className="text-[#00FF94]">{exp.date}</p>
+                </CardHeader>
+                <CardContent className="px-0 pb-0">
+                  <p className="text-gray-400 mb-2 font-semibold">{exp.company}</p>
+                  {exp.description && <p className="text-gray-500 text-sm mb-3">{exp.description}</p>}
+                  <div className="flex flex-wrap gap-2">
+                    {exp.skills.map((skill, idx) => (
+                      <Badge key={idx} variant="outline" className="border-[#00FF94] text-[#00FF94]">
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
-        {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {/* Left Column - Education & Experience */}
-          <div className="space-y-8">
-            {/* Education Section */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ margin: "-100px", once: false }}>
-              <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center gap-2">
+        {/* Education & Certifications Section */}
+        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+          {/* Education Column */}
+          <motion.div initial="hidden" whileInView="visible" viewport={{ margin: "-100px", once: false }}>
+            <motion.div
+              className="text-center mb-8"
+              initial={{ opacity: 0.1, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ margin: "-100px", once: false }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <h3 className="text-2xl font-bold text-white flex items-center justify-center gap-2">
                 <FaGraduationCap className="text-[#00FF94]" /> Education
               </h3>
-              <div className="space-y-4">
-                {educationData.map((edu, index) => (
-                  <motion.div
-                    key={index}
-                    custom={index}
-                    variants={cardVariants}
-                    className="bg-zinc-900 border-2 border-[#00FF94] hover:border-[#00FF55] hover:shadow-lg hover:shadow-[#00FF94]/30 transition-all duration-300 p-6 rounded-lg"
-                    viewport={{ once: false }}
-                  >
-                    <CardHeader className="px-0 pt-0">
-                      <CardTitle className="text-white text-lg">{edu.title}</CardTitle>
-                      <p className="text-[#00FF94]">{edu.date}</p>
-                    </CardHeader>
-                    <CardContent className="text-gray-400 px-0 pb-0">
-                      <p className="font-semibold">{edu.institution}</p>
-                      <p className="mt-2">{edu.content}</p>
-                    </CardContent>
-                  </motion.div>
-                ))}
-              </div>
             </motion.div>
+            <div className="space-y-4">
+              {educationData.map((edu, index) => (
+                <motion.div
+                  key={index}
+                  custom={index}
+                  variants={cardVariants}
+                  className="bg-zinc-900 border-2 border-[#00FF94] hover:border-[#00FF55] hover:shadow-lg hover:shadow-[#00FF94]/30 transition-all duration-300 p-6 rounded-lg"
+                  viewport={{ once: false }}
+                >
+                  <CardHeader className="px-0 pt-0">
+                    <CardTitle className="text-white text-base">{edu.title}</CardTitle>
+                    <p className="text-[#00FF94]">{edu.date}</p>
+                  </CardHeader>
+                  <CardContent className="px-0 pb-0">
+                    <p className="text-gray-400 mb-2 font-semibold text-sm">{edu.institution}</p>
+                    <p className="text-gray-500 text-sm">{edu.content}</p>
+                  </CardContent>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
 
-            {/* Experience Section */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ margin: "-100px", once: false }}>
-              <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center gap-2">
-                <FaBriefcase className="text-[#00FF94]" /> Experience
-              </h3>
-              <div className="space-y-4">
-                {experienceData.map((exp, index) => (
-                  <motion.div
-                    key={index}
-                    custom={index}
-                    variants={cardVariants}
-                    className="bg-zinc-900 border-2 border-[#00FF94] hover:border-[#00FF55] hover:shadow-lg hover:shadow-[#00FF94]/30 transition-all duration-300 p-6 rounded-lg"
-                    viewport={{ once: false }}
-                  >
-                    <CardHeader className="px-0 pt-0">
-                      <CardTitle className="text-white text-lg">{exp.title}</CardTitle>
-                      <p className="text-[#00FF94]">{exp.date}</p>
-                    </CardHeader>
-                    <CardContent className="px-0 pb-0">
-                      <p className="text-gray-400 mb-2 font-semibold">{exp.company}</p>
-                      {exp.description && <p className="text-gray-500 text-sm mb-3">{exp.description}</p>}
-                      <div className="flex flex-wrap gap-2">
-                        {exp.skills.map((skill, idx) => (
-                          <Badge key={idx} variant="outline" className="border-[#00FF94] text-[#00FF94]">
-                            {skill}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Middle Column - Certifications */}
+          {/* Certifications Column */}
           <motion.div initial="hidden" whileInView="visible" viewport={{ margin: "-100px", once: false }}>
-            <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center gap-2">
-              <FaCertificate className="text-[#00FF94]" /> Certifications
-            </h3>
+            <motion.div
+              className="text-center mb-8"
+              initial={{ opacity: 0.1, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ margin: "-100px", once: false }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <h3 className="text-2xl font-bold text-white flex items-center justify-center gap-2">
+                <FaCertificate className="text-[#00FF94]" /> Certifications
+              </h3>
+            </motion.div>
             <div className="space-y-4">
               {certificationData.map((cert, index) => (
                 <motion.div
@@ -302,51 +327,60 @@ export function Resume() {
                   viewport={{ once: false }}
                 >
                   <CardHeader className="px-0 pt-0">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Badge className="bg-green-600 text-white text-xs">CERTIFICATE</Badge>
-                    </div>
-                    <CardTitle className="text-white text-lg">{cert.title}</CardTitle>
+                    <CardTitle className="text-white text-base">{cert.title}</CardTitle>
                     <p className="text-[#00FF94]">{cert.date}</p>
                   </CardHeader>
-                  <CardContent className="text-gray-400 px-0 pb-0">
-                    <p className="font-semibold">{cert.institution}</p>
-                    <p className="mt-2">{cert.content}</p>
-                  </CardContent>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Right Column - Attestations */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ margin: "-100px", once: false }}>
-            <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center gap-2">
-              <FaAward className="text-[#00FF94]" /> Training
-            </h3>
-            <div className="space-y-4">
-              {attestationData.map((attestation, index) => (
-                <motion.div
-                  key={index}
-                  custom={index}
-                  variants={cardVariants}
-                  className="bg-zinc-900 border-2 border-[#00FF94] hover:border-[#00FF55] hover:shadow-lg hover:shadow-[#00FF94]/30 transition-all duration-300 p-6 rounded-lg"
-                  viewport={{ once: false }}
-                >
-                  <CardHeader className="px-0 pt-0">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Badge className="bg-blue-600 text-white text-xs">TRAINING CERTIFICATE</Badge>
-                    </div>
-                    <CardTitle className="text-white text-lg">{attestation.title}</CardTitle>
-                    <p className="text-[#00FF94]">{attestation.date}</p>
-                  </CardHeader>
-                  <CardContent className="text-gray-400 px-0 pb-0">
-                    <p className="font-semibold">{attestation.institution}</p>
-                    <p className="mt-2">{attestation.content}</p>
+                  <CardContent className="px-0 pb-0">
+                    <p className="text-gray-400 mb-2 font-semibold text-sm">{cert.institution}</p>
+                    <p className="text-gray-500 text-sm">{cert.content}</p>
                   </CardContent>
                 </motion.div>
               ))}
             </div>
           </motion.div>
         </div>
+
+        {/* Training Section - Full Width */}
+        <motion.div
+          className="mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ margin: "-100px", once: false }}
+        >
+          <motion.div
+            className="text-center mb-8"
+            initial={{ opacity: 0.1, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ margin: "-100px", once: false }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <h3 className="text-3xl font-bold text-white flex items-center justify-center gap-3">
+              <FaAward className="text-[#00FF94]" /> Training & Workshops
+            </h3>
+            <p className="text-gray-400 mt-2">Professional development courses</p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-6">
+            {attestationData.map((attestation, index) => (
+              <motion.div
+                key={index}
+                custom={index}
+                variants={cardVariants}
+                className="bg-zinc-900 border-2 border-[#00FF94] hover:border-[#00FF55] hover:shadow-lg hover:shadow-[#00FF94]/30 transition-all duration-300 p-6 rounded-lg"
+                viewport={{ once: false }}
+              >
+                <CardHeader className="px-0 pt-0">
+                  <CardTitle className="text-white text-lg">{attestation.title}</CardTitle>
+                  <p className="text-[#00FF94]">{attestation.date}</p>
+                </CardHeader>
+                <CardContent className="px-0 pb-0">
+                  <p className="text-gray-400 mb-2 font-semibold">{attestation.institution}</p>
+                  <p className="text-gray-500 text-sm">{attestation.content}</p>
+                </CardContent>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* Engagement Section */}
         <motion.div
@@ -365,10 +399,10 @@ export function Resume() {
             <h3 className="text-3xl font-bold text-white flex items-center justify-center gap-3">
               <FaHandsHelping className="text-[#00FF94]" /> Community Engagement
             </h3>
-            <p className="text-gray-400 mt-2">Contributing to the developer community</p>
+            <p className="text-gray-400 mt-2">Volunteer work and contributions</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid lg:grid-cols-2 gap-6">
             {engagementData.map((item, index) => (
               <motion.div
                 key={index}
@@ -377,14 +411,24 @@ export function Resume() {
                 className="bg-gradient-to-br from-zinc-900 to-zinc-800 border-2 border-[#00FF94] hover:border-[#00FF55] hover:shadow-lg hover:shadow-[#00FF94]/30 transition-all duration-300 p-6 rounded-lg"
                 viewport={{ once: false }}
               >
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#00FF94] bg-opacity-20 flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-[#00FF94] bg-opacity-20 flex items-center justify-center flex-shrink-0">
                     <FaHandsHelping className="text-[#00FF94]" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold text-lg mb-2">{item.title}</h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
+                    <h4 className="text-white font-semibold text-lg">{item.organization}</h4>
+                    <p className="text-[#00FF94] text-sm">{item.period}</p>
                   </div>
+                </div>
+                <div className="pl-13">
+                  <ul className="space-y-2">
+                    {item.tasks.map((task, idx) => (
+                      <li key={idx} className="text-gray-400 text-sm flex items-start gap-2">
+                        <span className="text-[#00FF94] mt-1">•</span>
+                        <span>{task}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </motion.div>
             ))}
